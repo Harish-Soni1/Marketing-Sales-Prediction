@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="split left">
+        <img src= {{ name }} class="centered"/>
+    </div>
+
+    <div style="color:blue">
+        <form action="{{ url_for('predict')}}" method="post">
+            <table align="right">
+                <tr>
+                    <th colspan="2"><h2>Predictive Analysis</h2></th>
+                </tr>
+                <tr>
+                    <td><h3>What is the Product Code</h3></td>
+                    <td><input id="Product" name="PROD_CD" type="number "></td>
+                </tr>
+                <tr>
+                    <td><h3>What is the Salesman Code</h3></td>
+                    <td><input id="Salesman" name="SLSMAN_CD" required="required"></td>
+                </tr>
+                <tr>
+                    <td><h3>Please Select the Month</h3></td>
+                    <td>
+                        <select name="PLAN_MONTH" id="month" required="required">
+                            <option value="January">January</option>
+                            <option value="Febraury">Febraury</option>
+                            <option value="March">March</option>
+                            <option value="April">April</option>
+                            <option value="May">May</option>
+                            <option value="June">June</option>
+                            <option value="July">July</option>
+                            <option value="August">August</option>
+                            <option value="September">September</option>
+                            <option value="October">October</option>
+                            <option value="November">November</option>
+                            <option value="December">December</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>   
+                    <td><h3>Please Select the Year</h3></td>
+                    <td>
+                        <select name="PLAN_YEAR" id="Year" required="required">
+                            <option value="2011">2011</option>
+                            <option value="2012">2012</option>
+                            <option value="2013">2013</option>
+                            <option value="2014">2014</option>
+                            <option value="2015">2015</option>
+                            <option value="2016">2016</option>
+                            <option value="2017">2017</option>
+                            <option value="2018">2018</option>
+                            <option value="2019">2019</option>
+                            <option value="2020">2020</option>
+                            <option value="2021">2021</option>
+                            <option value="2022">2022</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><h3>How much hike you want?</h3></td>
+                    <td><input id="Hike" name="Hike" type="number "></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><button id="sub" type="submit ">Calculate Target</button></td>
+                </tr>
+                <tr>
+                    <th colspan="2"><h3>{{ prediction_text }}<h3></h3></th>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+
+
+
+    <style>
+        body {
+            background-color: lightslategray;
+            text-align: center;
+            padding: 0px;
+        }
+        
+        #Hike {
+            font-size: 18px;
+            width: 100px;
+            height: 23px;
+            top: 23px;
+        }
+        
+        #box {
+            border-radius: 60px;
+            border-color: 45px;
+            border-style: solid;
+            font-family: cursive;
+            text-align: center;
+            background-color: rgb(168, 131, 61);
+            font-size: medium;
+            position: absolute;
+            width: 700px;
+            bottom: 9%;
+            height: 850px;
+            right: 30%;
+            padding: 0px;
+            margin: 0px;
+            font-size: 14px;
+        }
+
+        .split {
+                height: 100%;
+                width: 50%;
+                position: fixed;
+                z-index: 1;
+                top: 0;
+                overflow: hidden;
+                padding: 20pox;
+        }
+
+        .left {
+                left: 0;
+                align-content: center;
+        }
+
+        .centered {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 600px;
+                height: 400px;
+        }
+        
+        #month {
+            width: 83px;
+            height: 43px;
+            text-align: center;
+            border-radius: 14px;
+            font-size: 20px;
+        }
+        
+        #month:hover {
+            background-color: coral;
+        }
+        
+        #Hike {
+            width: 99px;
+            height: 43px;
+            text-align: center;
+            border-radius: 14px;
+            font-size: 18px;
+        }
+        
+        #Hike:hover {
+            background-color: coral;
+        }
+        
+        #Year {
+            width: 99px;
+            height: 43px;
+            text-align: center;
+            border-radius: 14px;
+            font-size: 18px;
+        }
+        
+        #Year:hover {
+            background-color: coral;
+        }
+        
+        #sub {
+            width: 120px;
+            height: 43px;
+            text-align: center;
+            border-radius: 14px;
+            font-size: 18px;
+        }
+        
+        #sub:hover {
+            background-color: darkcyan;
+        }
+        
+        #Product {
+            border-radius: 14px;
+            height: 25px;
+            font-size: 20px;
+            text-align: center;
+        }
+        
+        #Salesman {
+            border-radius: 14px;
+            height: 25px;
+            font-size: 20px;
+            text-align: center;
+        }
+    </style>
+</body>
+
+</html>
